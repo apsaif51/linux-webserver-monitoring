@@ -11,3 +11,29 @@ listen to Syslog channels vs Read from Log file
 | Apache Access | Log File     | High-volume application log         |
 | Apache Error  | Log File     | Application diagnostics             |
 | Nginx Logs    | Log File     | Web server logs                     |
+
+
+
+Permissions
+
+Some logs cannot be read by the FortiSIEM Agent without additional permissions.
+
+Solutions considered:
+
+ACLs using setfacl                     sudo setfacl -m u:phoenix:r /var/log/audit/audit.log
+AppArmor profile adjustments (Ubuntu)  sudo aa-complain /usr/sbin/rsyslogd  (AVC error) 
+
+
+Log Rotation
+
+Linux rotates logs.
+
+FortiSIEM should continue reading after rotation.
+
+Check:
+
+logrotate configuration 
+
+
+
+
