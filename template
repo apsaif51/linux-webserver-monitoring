@@ -1,0 +1,13 @@
+
+listen to Syslog channels vs Read from Log file 
+
+| Source        | Method       | Reason                              |
+| ------------- | ------------ | ---------------------------         |
+| auth.log      | Syslog       | Native Linux logging                |
+| messages      | Syslog       | Centralized system events (syslog)  |
+| secure        | Syslog       | Authentication                      |
+| cron          | Syslog       | Low EPS                             |
+| audit.log     | Log File     | Structured audit records            |
+| Apache Access | Log File     | High-volume application log         |
+| Apache Error  | Log File     | Application diagnostics             |
+| Nginx Logs    | Log File     | Web server logs                     |
